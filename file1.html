@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery">
+        <div class="portfolio-item large">
+            <img class="img-fluid" src="assets/img/portfolio/eng1.png" alt="Large Photo">
+        </div>
+        <div class="portfolio-item small">
+            <img class="img-fluid" src="assets/img/portfolio/eng2.png" alt="Small Photo 1">
+        </div>
+        <div class="portfolio-item small">
+            <img class="img-fluid" src="assets/img/portfolio/eng3.png" alt="Small Photo 2">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+    /* Basic styling for body and HTML */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents scrolling if the content fits */
+}
+
+/* Styling for the gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Larger area for the large photo */
+    grid-template-rows: 1fr 1fr; /* Two rows */
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    grid-gap: 10px; /* Spacing between images */
+}
+
+/* Styling for each portfolio item */
+.portfolio-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.large {
+    grid-column: span 2; /* Large photo spans two columns */
+    grid-row: span 2; /* Also spans two rows to maintain 1x1 ratio */
+}
+
+.small {
+    grid-column: span 1; /* Each small photo takes one column */
+    grid-row: span 1; /* And one row */
+}
+
+.img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.portfolio-item {
+    aspect-ratio: 1 / 1; /* Ensures the portfolio item is always square */
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05); /* Subtle grow effect on hover */
+    z-index: 10; /* Ensures the scaled item is above others */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* Adds shadow on hover */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions for effects */
+}
+
+</style>
